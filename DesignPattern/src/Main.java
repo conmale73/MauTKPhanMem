@@ -1,9 +1,7 @@
 import design_pattern.mediator.FindMediator;
 import design_pattern.mediator.IFindMediator;
-import manager.*;
 import manager.impl.*;
 import model.Student;
-import model.Teacher;
 import util.CheckError;
 
 import java.util.Scanner;
@@ -24,6 +22,7 @@ public class Main {
         courseManager.addData();
         // show menu
         showMenu();
+
         while (true) {
             choose = CheckError.checkChoose(scanner.nextLine());
             switch (choose) {

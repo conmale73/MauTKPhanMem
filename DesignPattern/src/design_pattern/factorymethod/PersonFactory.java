@@ -1,4 +1,4 @@
-package design_pattern.flyweight;
+package design_pattern.factorymethod;
 
 import model.Person;
 import model.Student;
@@ -6,7 +6,7 @@ import model.Teacher;
 
 import java.util.HashMap;
 
-public class PersonFactory {
+public class PersonFactory{
     private static final HashMap<PersonType, Person> persons = new HashMap<>();
 
     public static Person createPerson(PersonType personType) {

@@ -1,7 +1,7 @@
 package manager.impl;
 
-import design_pattern.flyweight.PersonFactory;
-import design_pattern.flyweight.PersonType;
+import design_pattern.factorymethod.PersonFactory;
+import design_pattern.factorymethod.PersonType;
 import design_pattern.interpreter.Expression;
 import design_pattern.interpreter.ExpressionParser;
 import design_pattern.iterator.IContainer;
