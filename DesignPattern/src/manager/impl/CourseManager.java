@@ -29,6 +29,7 @@ public class CourseManager implements ICourseManager {
 
     @Override
     public void add() {
+        SubjectManager subjectManager = new SubjectManager();
         System.out.print("\nNhập mã lớp học: ");
         String id = CheckValid.checkString(scanner);
         System.out.print("Nhập tên lớp học: ");
@@ -37,7 +38,8 @@ public class CourseManager implements ICourseManager {
         String classRoom = CheckValid.checkString(scanner);
         System.out.print("Nhập mã môn học: ");
         String subjectId = CheckValid.checkString(scanner);
-        Subject subject = (Subject) managerMediator.findOne(ObjectType.SUBJECT, subjectId);
+        Subject subject = subjectManager.findById(subjectId);
+//        Subject subject = (Subject) managerMediator.findOne(ObjectType.SUBJECT, subjectId);
         if (subject == null) {
             System.out.println("Môn học có mã " + subjectId + " không tồn tại!");
         } else {
@@ -47,6 +49,7 @@ public class CourseManager implements ICourseManager {
     }
 
     public void addStudentToCourse() {
+        StudentManager studentManager = new StudentManager();
         System.out.print("Nhập mã lớp học: ");
         String courseId = scanner.nextLine();
         Course course = findById(courseId);
@@ -57,8 +60,8 @@ public class CourseManager implements ICourseManager {
 
         System.out.print("Nhập mã sinh viên: ");
         String studentId = scanner.nextLine();
-        //Student student = studentManager.findById(studentId);
-        Student student = (Student) managerMediator.findOne(ObjectType.STUDENT, studentId);
+        Student student = studentManager.findById(studentId);
+//        Student student = (Student) managerMediator.findOne(ObjectType.STUDENT, studentId);
         if (student != null) {
             course.registerObserver(student);
         } else {

@@ -12,13 +12,13 @@ public class Main {
     public static void main(String[] args) {
         Integer choose = null;
         boolean exit = false;
-        IFindMediator findMediator = new FindMediator();
+//        IFindMediator findMediator = new FindMediator();
 
         StudentManager studentManager = new StudentManager();
-        CourseManager courseManager = new CourseManager(findMediator);
-        SubjectManager subjectManager = new SubjectManager(findMediator);
-        TeacherManager teacherManager = new TeacherManager(findMediator);
-        GradesManager gradesManager = new GradesManager(findMediator);
+        CourseManager courseManager = new CourseManager();
+        SubjectManager subjectManager = new SubjectManager();
+        TeacherManager teacherManager = new TeacherManager();
+        GradesManager gradesManager = new GradesManager();
         courseManager.addData();
         // show menu
         showMenu();
