@@ -1,10 +1,10 @@
 package model;
 
 import design_pattern.observer.IObserver;
-import design_pattern.prototype.IPrototype;
+
 import java.io.Serializable;
 
-public class Student extends Person implements Serializable, IPrototype, IObserver {
+public class Student extends Person implements Serializable, IObserver {
     private static int nextId = 0;
     private String major;
 
@@ -18,10 +18,7 @@ public class Student extends Person implements Serializable, IPrototype, IObserv
         super();
     }
 
-    @Override
-    public IPrototype clone() {
-        return new Student(null, this.getName(), this.getAge(), this.getGender(), this.getAddress(), this.getEmail(), this.getPhoneNumber(), major);
-    }
+
 
     @Override
     public void update(String message) {

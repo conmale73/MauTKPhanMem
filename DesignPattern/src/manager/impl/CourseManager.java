@@ -1,10 +1,8 @@
 package manager.impl;
 
-import design_pattern.mediator.IFindMediator;
-import design_pattern.mediator.FindMediator;
-import design_pattern.mediator.ObjectType;
+import manager.Expression.IFindExpression;
+import manager.Expression.ObjectTypeExpression;
 import manager.ICourseManager;
-import manager.IManager;
 import model.Course;
 import model.Student;
 import model.Subject;
@@ -17,9 +15,9 @@ import java.util.Scanner;
 public class CourseManager implements ICourseManager {
     private static final Scanner scanner = new Scanner(System.in);
     private static final List<Course> courses = new ArrayList<>();
-    private IFindMediator managerMediator;
+    private IFindExpression managerMediator;
 
-    public CourseManager(IFindMediator findMediator) {
+    public CourseManager(IFindExpression findMediator) {
         this.managerMediator = findMediator;
     }
 
@@ -29,7 +27,6 @@ public class CourseManager implements ICourseManager {
 
     @Override
     public void add() {
-        SubjectManager subjectManager = new SubjectManager();
         System.out.print("\nNhập mã lớp học: ");
         String id = CheckValid.checkString(scanner);
         System.out.print("Nhập tên lớp học: ");
@@ -38,8 +35,7 @@ public class CourseManager implements ICourseManager {
         String classRoom = CheckValid.checkString(scanner);
         System.out.print("Nhập mã môn học: ");
         String subjectId = CheckValid.checkString(scanner);
-        Subject subject = subjectManager.findById(subjectId);
-//        Subject subject = (Subject) managerMediator.findOne(ObjectType.SUBJECT, subjectId);
+        Subject subject = (Subject) managerMediator.findOne(ObjectTypeExpression.SUBJECT, subjectId);
         if (subject == null) {
             System.out.println("Môn học có mã " + subjectId + " không tồn tại!");
         } else {
@@ -49,7 +45,6 @@ public class CourseManager implements ICourseManager {
     }
 
     public void addStudentToCourse() {
-        StudentManager studentManager = new StudentManager();
         System.out.print("Nhập mã lớp học: ");
         String courseId = scanner.nextLine();
         Course course = findById(courseId);
@@ -60,8 +55,8 @@ public class CourseManager implements ICourseManager {
 
         System.out.print("Nhập mã sinh viên: ");
         String studentId = scanner.nextLine();
-        Student student = studentManager.findById(studentId);
-//        Student student = (Student) managerMediator.findOne(ObjectType.STUDENT, studentId);
+        //Student student = studentManager.findById(studentId);
+        Student student = (Student) managerMediator.findOne(ObjectTypeExpression.STUDENT, studentId);
         if (student != null) {
             course.registerObserver(student);
         } else {

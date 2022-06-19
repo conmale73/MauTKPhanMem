@@ -1,7 +1,7 @@
 package manager.impl;
 
-import design_pattern.mediator.IFindMediator;
-import design_pattern.mediator.ObjectType;
+import manager.Expression.IFindExpression;
+import manager.Expression.ObjectTypeExpression;
 import manager.IManager;
 import model.Course;
 import model.Student;
@@ -12,9 +12,9 @@ import java.util.Scanner;
 
 public class GradesManager implements IManager<Transcript> {
     private static final Scanner scanner = new Scanner(System.in);
-    private IFindMediator findMediator;
+    private IFindExpression findMediator;
 
-    public GradesManager(IFindMediator findMediator) {
+    public GradesManager(IFindExpression findMediator) {
         this.findMediator = findMediator;
     }
 
@@ -25,7 +25,7 @@ public class GradesManager implements IManager<Transcript> {
     private Course findCourse() {
         System.out.print("Nhập mã lớp học: ");
         String gradeId = CheckValid.checkString(scanner);
-        return (Course) findMediator.findOne(ObjectType.COURSE, gradeId);
+        return (Course) findMediator.findOne(ObjectTypeExpression.COURSE, gradeId);
     }
 
     private Transcript createTranscript() {

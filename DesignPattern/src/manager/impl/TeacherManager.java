@@ -5,7 +5,7 @@ import design_pattern.factorymethod.PersonType;
 import design_pattern.iterator.IContainer;
 import design_pattern.iterator.IIterator;
 import design_pattern.iterator.PersonContainer;
-import design_pattern.mediator.IFindMediator;
+import manager.Expression.IFindExpression;
 import manager.IManager;
 import model.Person;
 import model.Teacher;
@@ -25,7 +25,7 @@ public class TeacherManager implements IManager<Teacher> {
     private IIterator<Person> personIterator;
     private final UpdateDeleteMethod deleteTeacher;
     private final UpdateDeleteMethod updateTeacher;
-    private IFindMediator findMediator;
+    private IFindExpression findMediator;
 
     public TeacherManager() {
         teacherFileManager = TeacherDatabase.getInstance();
@@ -34,7 +34,7 @@ public class TeacherManager implements IManager<Teacher> {
         deleteTeacher = new DeleteTeacher();
         updateTeacher = new UpdateTeacher();
     }
-    public TeacherManager(IFindMediator findMediator) {
+    public TeacherManager(IFindExpression findMediator) {
         this.findMediator = findMediator;
         teacherFileManager = TeacherDatabase.getInstance();
         personContainer = new PersonContainer();

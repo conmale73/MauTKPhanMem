@@ -1,5 +1,5 @@
-import design_pattern.mediator.FindMediator;
-import design_pattern.mediator.IFindMediator;
+import manager.Expression.FindExpression;
+import manager.Expression.IFindExpression;
 import manager.impl.*;
 import model.Student;
 import util.CheckError;
@@ -12,13 +12,13 @@ public class Main {
     public static void main(String[] args) {
         Integer choose = null;
         boolean exit = false;
-//        IFindMediator findMediator = new FindMediator();
+        IFindExpression findExpression = new FindExpression();
 
         StudentManager studentManager = new StudentManager();
-        CourseManager courseManager = new CourseManager();
-        SubjectManager subjectManager = new SubjectManager();
-        TeacherManager teacherManager = new TeacherManager();
-        GradesManager gradesManager = new GradesManager();
+        CourseManager courseManager = new CourseManager(findExpression);
+        SubjectManager subjectManager = new SubjectManager(findExpression);
+        TeacherManager teacherManager = new TeacherManager(findExpression);
+        GradesManager gradesManager = new GradesManager(findExpression);
         courseManager.addData();
         // show menu
         showMenu();
@@ -40,25 +40,15 @@ public class Main {
                                 studentManager.showAll();
                                 break;
                             case 3:
-                                System.out.print("Nhập mã sinh viên: ");
-                                String id = scanner.nextLine().trim();
-                                Student student = studentManager.findById(id);
-                                if(student != null){
-                                    studentManager.clone(student);
-                                }else{
-                                    System.out.print("Không tìm thấy sinh viên!\n");
-                                }
-                                break;
-                            case 4:
                                 studentManager.delete();
                                 break;
-                            case 5:
+                            case 4:
                                 studentManager.update();
                                 break;
-                            case 6:
+                            case 5:
                                 studentManager.searchStudent("AND");
                                 break;
-                            case 7:
+                            case 6:
                                 studentManager.searchStudent("OR");
                                 break;
                             case 0:

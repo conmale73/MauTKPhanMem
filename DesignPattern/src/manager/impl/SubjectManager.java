@@ -3,7 +3,7 @@ package manager.impl;
 import design_pattern.iterator.IContainer;
 import design_pattern.iterator.IIterator;
 import design_pattern.iterator.SubjectContainer;
-import design_pattern.mediator.IFindMediator;
+import manager.Expression.IFindExpression;
 import manager.IManager;
 import model.Subject;
 import design_pattern.singleton.IDatabase;
@@ -17,9 +17,9 @@ public class SubjectManager implements IManager<Subject> {
     private final IDatabase<Subject> subjectFileManager;
     private final IContainer subjectContainer;
     private final UpdateDeleteMethod deleteSubject;
-    private IFindMediator findMediator;
+    private IFindExpression findMediator;
 
-    public SubjectManager(IFindMediator findMediator) {
+    public SubjectManager(IFindExpression findMediator) {
         this.findMediator = findMediator;
         subjectFileManager = SubjectDatabase.getInstance();
         subjectContainer = new SubjectContainer();

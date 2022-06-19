@@ -1,4 +1,4 @@
-package design_pattern.interpreter;
+package manager.Expression;
 
 public abstract class NonTerminalExpression {
     protected Expression expression;

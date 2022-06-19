@@ -2,8 +2,8 @@ package manager.impl;
 
 import design_pattern.factorymethod.PersonFactory;
 import design_pattern.factorymethod.PersonType;
-import design_pattern.interpreter.Expression;
-import design_pattern.interpreter.ExpressionParser;
+import manager.Expression.Expression;
+import manager.Expression.ExpressionParser;
 import design_pattern.iterator.IContainer;
 import design_pattern.iterator.IIterator;
 import design_pattern.iterator.PersonContainer;
@@ -109,13 +109,6 @@ public class StudentManager implements IManager<Student> {
         System.out.println("Thêm thành công");
     }
 
-    public void clone(Student student) {
-        if (student != null) {
-            Student s = (Student) student.clone();
-            saveStudent(s);
-            System.out.println("Clone thành công");
-        }
-    }
     @Override
     public Student findById(String id) {
         personIterator = personContainer.createIterator(studentFileManager.getData());
