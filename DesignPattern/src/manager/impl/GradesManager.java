@@ -1,6 +1,6 @@
 package manager.impl;
 
-import manager.Expression.IFindExpression;
+
 import manager.Expression.ObjectTypeExpression;
 import manager.IManager;
 import model.Course;
@@ -12,20 +12,16 @@ import java.util.Scanner;
 
 public class GradesManager implements IManager<Transcript> {
     private static final Scanner scanner = new Scanner(System.in);
-    private IFindExpression findMediator;
-
-    public GradesManager(IFindExpression findMediator) {
-        this.findMediator = findMediator;
-    }
 
     public GradesManager() {
 
     }
 
     private Course findCourse() {
+        CourseManager courseManager = new CourseManager();
         System.out.print("Nhập mã lớp học: ");
         String gradeId = CheckValid.checkString(scanner);
-        return (Course) findMediator.findOne(ObjectTypeExpression.COURSE, gradeId);
+        return (Course) courseManager.findById(gradeId);
     }
 
     private Transcript createTranscript() {

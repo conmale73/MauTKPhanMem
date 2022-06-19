@@ -153,11 +153,10 @@ public class StudentManager implements IManager<Student> {
         System.out.println("-------------Menu------------");
         System.out.println("1. Thêm mới sinh viên.");
         System.out.println("2. Xem danh sách sinh viên.");
-        System.out.println("3. Clone sinh viên.");
-        System.out.println("4. Xóa sinh viên.");
-        System.out.println("5. Chỉnh sửa thông tin 1 sinh viên.");
-        System.out.println("6. Tìm kiếm chính xác 1 sinh viên.");
-        System.out.println("7. Tìm kiếm sinh viên tương đương.");
+        System.out.println("3. Xóa sinh viên.");
+        System.out.println("4. Chỉnh sửa thông tin 1 sinh viên.");
+        System.out.println("5. Tìm kiếm chính xác 1 sinh viên.");
+        System.out.println("6. Tìm kiếm sinh viên tương đương.");
         System.out.println("0. exit.");
         System.out.println("---------------------------");
         System.out.print("Please choose: ");

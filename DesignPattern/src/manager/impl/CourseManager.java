@@ -1,6 +1,5 @@
 package manager.impl;
 
-import manager.Expression.IFindExpression;
 import manager.Expression.ObjectTypeExpression;
 import manager.ICourseManager;
 import model.Course;
@@ -15,11 +14,7 @@ import java.util.Scanner;
 public class CourseManager implements ICourseManager {
     private static final Scanner scanner = new Scanner(System.in);
     private static final List<Course> courses = new ArrayList<>();
-    private IFindExpression managerMediator;
 
-    public CourseManager(IFindExpression findMediator) {
-        this.managerMediator = findMediator;
-    }
 
     public CourseManager() {
 
@@ -27,6 +22,7 @@ public class CourseManager implements ICourseManager {
 
     @Override
     public void add() {
+        SubjectManager subjectManager = new SubjectManager();
         System.out.print("\nNhập mã lớp học: ");
         String id = CheckValid.checkString(scanner);
         System.out.print("Nhập tên lớp học: ");
@@ -35,7 +31,7 @@ public class CourseManager implements ICourseManager {
         String classRoom = CheckValid.checkString(scanner);
         System.out.print("Nhập mã môn học: ");
         String subjectId = CheckValid.checkString(scanner);
-        Subject subject = (Subject) managerMediator.findOne(ObjectTypeExpression.SUBJECT, subjectId);
+        Subject subject = subjectManager.findById(subjectId);
         if (subject == null) {
             System.out.println("Môn học có mã " + subjectId + " không tồn tại!");
         } else {
@@ -53,10 +49,10 @@ public class CourseManager implements ICourseManager {
             return;
         }
 
+        StudentManager studentManager = new StudentManager();
         System.out.print("Nhập mã sinh viên: ");
         String studentId = scanner.nextLine();
-        //Student student = studentManager.findById(studentId);
-        Student student = (Student) managerMediator.findOne(ObjectTypeExpression.STUDENT, studentId);
+        Student student = studentManager.findById(studentId);
         if (student != null) {
             course.registerObserver(student);
         } else {

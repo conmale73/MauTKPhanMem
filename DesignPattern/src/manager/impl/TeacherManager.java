@@ -5,7 +5,6 @@ import design_pattern.factorymethod.PersonType;
 import design_pattern.iterator.IContainer;
 import design_pattern.iterator.IIterator;
 import design_pattern.iterator.PersonContainer;
-import manager.Expression.IFindExpression;
 import manager.IManager;
 import model.Person;
 import model.Teacher;
@@ -25,7 +24,6 @@ public class TeacherManager implements IManager<Teacher> {
     private IIterator<Person> personIterator;
     private final UpdateDeleteMethod deleteTeacher;
     private final UpdateDeleteMethod updateTeacher;
-    private IFindExpression findMediator;
 
     public TeacherManager() {
         teacherFileManager = TeacherDatabase.getInstance();
@@ -34,14 +32,14 @@ public class TeacherManager implements IManager<Teacher> {
         deleteTeacher = new DeleteTeacher();
         updateTeacher = new UpdateTeacher();
     }
-    public TeacherManager(IFindExpression findMediator) {
-        this.findMediator = findMediator;
-        teacherFileManager = TeacherDatabase.getInstance();
-        personContainer = new PersonContainer();
-        updateId(teacherFileManager.getData());
-        deleteTeacher = new DeleteTeacher();
-        updateTeacher = new UpdateTeacher();
-    }
+//    public TeacherManager(IFindExpression findMediator) {
+//        this.findMediator = findMediator;
+//        teacherFileManager = TeacherDatabase.getInstance();
+//        personContainer = new PersonContainer();
+//        updateId(teacherFileManager.getData());
+//        deleteTeacher = new DeleteTeacher();
+//        updateTeacher = new UpdateTeacher();
+//    }
 
     private void updateId(List<Person> teachers) {
         int maxId = 0;

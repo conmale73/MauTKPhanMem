@@ -1,5 +1,3 @@
-import manager.Expression.FindExpression;
-import manager.Expression.IFindExpression;
 import manager.impl.*;
 import model.Student;
 import util.CheckError;
@@ -12,13 +10,13 @@ public class Main {
     public static void main(String[] args) {
         Integer choose = null;
         boolean exit = false;
-        IFindExpression findExpression = new FindExpression();
+
 
         StudentManager studentManager = new StudentManager();
-        CourseManager courseManager = new CourseManager(findExpression);
-        SubjectManager subjectManager = new SubjectManager(findExpression);
-        TeacherManager teacherManager = new TeacherManager(findExpression);
-        GradesManager gradesManager = new GradesManager(findExpression);
+        CourseManager courseManager = new CourseManager();
+        SubjectManager subjectManager = new SubjectManager();
+        TeacherManager teacherManager = new TeacherManager();
+        GradesManager gradesManager = new GradesManager();
         courseManager.addData();
         // show menu
         showMenu();
