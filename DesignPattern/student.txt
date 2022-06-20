@@ -1,6 +1,6 @@
-S1,Thanh Lợi,20,Nam,QN,thanhloi@gmail.com,123,CNTT
-S2,Huy,20,Nam,QN,123,234,CNTT
+S1,Đức Hậu,21,Nam,QN,hauhau@gmail.com,123,CNTT
+S2,Thảo,20,Nữ,QN,123,234,CNTT
 S3,Tin,21,Nam,132,123,234,CNTT
-S4,Thanh Lợi,23,Nam,QN,thanhloi@gmail.com,123,CNTT
-S5,Dun,19,Nu,QN,123,123,May
+S4,Thành Đạt,23,Nam,QN,vtdat@gmail.com,123,CNTT
+S5,Minh,19,Nu,QN,123,123,May
 S6,Duc Hau Vu,22,Nam,Thu Duc,duchau@gmail.com,0120310232,IT
