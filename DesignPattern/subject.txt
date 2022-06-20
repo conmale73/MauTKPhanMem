@@ -1,2 +1,3 @@
 DSPT,Design Pattern,3,35
 WEB,Thiet Ke Web,3,30
+ML,Machine Learning,3,45
